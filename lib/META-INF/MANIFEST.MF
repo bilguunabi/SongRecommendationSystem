@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Title: Mahout Map-Reduce
+Implementation-Version: 0.12.0
+Implementation-Vendor-Id: org.apache.mahout
+Built-By: smarthi
+Build-Jdk: 1.7.0_80
+Specification-Vendor: The Apache Software Foundation
+Specification-Title: Mahout Map-Reduce
+Created-By: Apache Maven 3.3.3
+Specification-Version: 0.12.0
+Archiver-Version: Plexus Archiver
+
