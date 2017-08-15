@@ -50,7 +50,7 @@ public class MainController {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException, TasteException {
 		new MainController(); 
-		DataModel model = new FileDataModel(new File("D://dataset.csv"));
+		DataModel model = new FileDataModel(new File("./dataset.csv"));
 		UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
 		UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
 		UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
