@@ -14,14 +14,10 @@ import javax.swing.JOptionPane;
 
 import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.impl.model.file.FileDataModel;
-import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
 import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
-import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
 import org.apache.mahout.cf.taste.model.DataModel;
-import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
-import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 
 import core.Artist;
 import core.Song;
@@ -30,6 +26,10 @@ import dao.ArtistDAO;
 import dao.SongDAO;
 import dao.UserDAO;
 import javafx.util.Pair;
+import org.apache.mahout.cf.taste.impl.recommender.GenericItemBasedRecommender;
+import org.apache.mahout.cf.taste.impl.similarity.LogLikelihoodSimilarity;
+import org.apache.mahout.cf.taste.recommender.ItemBasedRecommender;
+import org.apache.mahout.cf.taste.similarity.ItemSimilarity;
 import ui.LoginFrame;
 import ui.SignupFrame;
 import ui.UserProfileFrame;
@@ -144,10 +144,10 @@ public class MainController {
 		List<Song> songs = new ArrayList<Song>();
 		try {
 			DataModel model;
-			model = new FileDataModel(new File("./dataset.csv"));
-			UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
-			UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
-			UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
+			model = new FileDataModel(new File("./dataset-musify.csv"));
+			ItemSimilarity similarity = new LogLikelihoodSimilarity(model);
+                        
+			ItemBasedRecommender recommender = new GenericItemBasedRecommender(model, similarity);
 			List<RecommendedItem> recommendations = recommender.recommend(userId, nbItems);
 			
 			Song song;

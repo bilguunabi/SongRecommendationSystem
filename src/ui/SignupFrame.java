@@ -42,16 +42,16 @@ public class SignupFrame extends JFrame {
         setContentPane(background);
 
 		usernamelabel = new JLabel("Username : ");
-		usernamelabel.setBounds(160, 80, 100, 40);
+		usernamelabel.setBounds(160, 80, 100, 30);
 
 		usernamefield = new JTextField();
-		usernamefield.setBounds(280, 80, 260, 40);
+		usernamefield.setBounds(280, 80, 260, 30);
 
 		password_label = new JLabel("Password : ");
-		password_label.setBounds(160, 130, 100, 40);
+		password_label.setBounds(160, 130, 100, 30);
 
 		password_field = new JPasswordField();
-		password_field.setBounds(280, 130, 260, 40);
+		password_field.setBounds(280, 130, 260, 30);
 
 		sign_up = new JButton("Sign up");
 		sign_up.setBounds(330, 200, 100, 30);
