@@ -72,8 +72,6 @@ public class MainController {
 			System.out.println("User Logged: Opening Profile");
 			userProfileFrame = new UserProfileFrame(userLogged, this);
 			loginFrame.setVisible(false);
-			JOptionPane.showMessageDialog(userProfileFrame, "Welcome to Music RS,  Browse freely! Logout when done!",
-					"Welcome", JOptionPane.INFORMATION_MESSAGE);
 		} else {
 			System.out.println("Invalid Credentials");
 			JOptionPane.showMessageDialog(loginFrame, "Wrong username or password!", "Error",
