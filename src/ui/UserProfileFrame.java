@@ -335,10 +335,10 @@ public class UserProfileFrame extends JFrame {
 		recommendedSongPane.setBackground(tabBackgroundColor);
 		displayRecommendedSongs(recommendedSongPane);
 
-		recommendedArtistPane = new JPanel();
-		recommendedArtistPane.setLayout(new BorderLayout());
-		recommendedArtistPane.setBackground(tabBackgroundColor);
-		displayRecommendedArtists(recommendedArtistPane);
+//		recommendedArtistPane = new JPanel();
+//		recommendedArtistPane.setLayout(new BorderLayout());
+//		recommendedArtistPane.setBackground(tabBackgroundColor);
+//		displayRecommendedArtists(recommendedArtistPane);
 
 		allSongPane = new JPanel();
 		allSongPane.setLayout(new BorderLayout());
@@ -419,9 +419,9 @@ public class UserProfileFrame extends JFrame {
 	}
 
 	public void refresh() throws FileNotFoundException, SQLException, IOException {
-		refreshLikedArtistList();
+//		refreshLikedArtistList();
 		refreshLikedSongList();
-		refreshRecommendedArtistList();
+//		refreshRecommendedArtistList();
 		refreshRecommendedSongList();
 	}
 

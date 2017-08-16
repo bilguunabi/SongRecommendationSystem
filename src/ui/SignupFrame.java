@@ -34,7 +34,7 @@ public class SignupFrame extends JFrame {
 
 	private void initSwingComponents() {
 		setTitle("Sign Up");
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 900, 590);
 		setResizable(false);
 		setLayout(null);
 		
