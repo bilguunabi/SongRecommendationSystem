@@ -48,17 +48,8 @@ public class MainController {
 	// Entities
 	private User userLogged;
 
-	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException, TasteException {
-		new MainController(); 
-		DataModel model = new FileDataModel(new File("./dataset.csv"));
-		UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
-		UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
-		UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
-		List recommendations = recommender.recommend(1, 3);
-		for (Object recommendation : recommendations) {
-            System.out.println((RecommendedItem) recommendation);
-        }
-
+	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException  {
+		new MainController();
 	}
 
 	public MainController() throws FileNotFoundException, IOException, SQLException {
@@ -122,7 +113,8 @@ public class MainController {
 		List<Song> allSongs = songDAO.fetchAllSongsList();
 		List<Song> recommended = new ArrayList<>();
 		if (!userDAO.isSongPreferencesSet(user))
-			return songDAO.fetchTopSongs();
+			//return songDAO.fetchTopSongs();
+			return this.readDataset(user.getUserId(), 10);
 		List<Song> likedSongs = getLikedSongList(user);
 		double userScore = 0.0;
 		for (Song song : likedSongs) {
@@ -150,6 +142,35 @@ public class MainController {
 		return recommended.subList(0, 8);
 	}
 
+	public List<Song> readDataset(long userId, int nbItems)  {
+		List<Song> songs = new ArrayList<Song>();
+		try {
+			DataModel model;
+			model = new FileDataModel(new File("./dataset.csv"));
+			UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
+			UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
+			UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
+			List<RecommendedItem> recommendations = recommender.recommend(userId, nbItems);
+			
+			Song song;
+			for (Object recommendation : recommendations) {
+				System.out.println(recommendation);
+				song = songDAO.getSong(((RecommendedItem) recommendation).getItemID());
+				songs.add(song);
+	        }
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TasteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return songs;
+	}
+	
 	public List<Artist> getRecommendedArtistList(User user) throws SQLException, FileNotFoundException, IOException {
 		List<Artist> allArtists = artistDAO.fetchAllArtistsList();
 		List<Artist> recommended = new ArrayList<>();

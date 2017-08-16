@@ -345,32 +345,32 @@ public class UserProfileFrame extends JFrame {
 		allSongPane.setBackground(tabBackgroundColor);
 		displayAllSongs(allSongPane);
 
-		allArtistPane = new JPanel();
-		allArtistPane.setLayout(new BorderLayout());
-		allArtistPane.setBackground(tabBackgroundColor);
-		displayAllArtists(allArtistPane);
+//		allArtistPane = new JPanel();
+//		allArtistPane.setLayout(new BorderLayout());
+//		allArtistPane.setBackground(tabBackgroundColor);
+//		displayAllArtists(allArtistPane);
 
 		likedSongPane = new JPanel();
 		likedSongPane.setLayout(new BorderLayout());
 		likedSongPane.setBackground(tabBackgroundColor);
 		displayLikedSongs(likedSongPane);
 
-		likedArtistPane = new JPanel();
-		likedArtistPane.setLayout(new BorderLayout());
-		likedArtistPane.setBackground(tabBackgroundColor);
-		// likedArtistPane.setBackground(Color.decode("#000000"));
-		displayLikedArtists(likedArtistPane);
+//		likedArtistPane = new JPanel();
+//		likedArtistPane.setLayout(new BorderLayout());
+//		likedArtistPane.setBackground(tabBackgroundColor);
+//		// likedArtistPane.setBackground(Color.decode("#000000"));
+//		displayLikedArtists(likedArtistPane);
 
 		ImageIcon icon = new ImageIcon("images/a.png");
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		tabbedPane.addTab("Recommended Songs", icon, recommendedSongPane,
 				"Default : Shows Top Songs,Else Recommended Songs based on User Preferences");
-		tabbedPane.addTab("Recommended Artists", icon, recommendedArtistPane,
-				"Default : Shows Top Artists,Else Recommended Artists based on User Preferences");
+//		tabbedPane.addTab("Recommended Artists", icon, recommendedArtistPane,
+//				"Default : Shows Top Artists,Else Recommended Artists based on User Preferences");
 		tabbedPane.addTab("All Songs", icon, allSongPane, "Shows All Songs in Knowledge Base");
-		tabbedPane.addTab("All Artists", icon, allArtistPane, "Shows All Artists in Knowledge Base");
+//		tabbedPane.addTab("All Artists", icon, allArtistPane, "Shows All Artists in Knowledge Base");
 		tabbedPane.addTab("Liked Songs", icon, likedSongPane, "Shows All Liked Songs (Facts Base)");
-		tabbedPane.addTab("Liked Artists", icon, likedArtistPane, "Shows All Liked Artists (Facts Base)");
+//		tabbedPane.addTab("Liked Artists", icon, likedArtistPane, "Shows All Liked Artists (Facts Base)");
 		ChangeListener changeListener = new ChangeListener() {
 			@Override
 			public void stateChanged(ChangeEvent changeEvent) {

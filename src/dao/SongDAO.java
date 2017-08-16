@@ -62,12 +62,12 @@ public class SongDAO extends GenericDAO<Song> {
 		return songs;
 	}
 
-	public Song getSong(int songId) throws SQLException {
+	public Song getSong(long songId) throws SQLException {
 		PreparedStatement myStmt = null;
 		Song song = null;
 		try {
 			myStmt = myConn.prepareStatement("SELECT * FROM song where song_id  = ?");
-			myStmt.setInt(1, songId);
+			myStmt.setLong(1, songId);
 			ResultSet rs = myStmt.executeQuery();
 			if (rs.next())
 				song = convertRowToT(rs);
