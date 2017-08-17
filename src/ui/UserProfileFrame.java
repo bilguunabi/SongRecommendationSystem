@@ -253,11 +253,6 @@ public class UserProfileFrame extends JFrame {
         rSongList.setListData(songs.toArray());
     }
 
-    void refreshRecommendedArtistList() throws SQLException, FileNotFoundException, IOException {
-        List<Artist> artists = mainController.getRecommendedArtistList(loggedUser);
-        rArtistList.setListData(artists.toArray());
-    }
-
     void refreshLikedSongList() throws FileNotFoundException, SQLException, IOException {
         List<Song> songs = mainController.getLikedSongList(loggedUser);
         lSongList.setListData(songs.toArray());
@@ -270,10 +265,6 @@ public class UserProfileFrame extends JFrame {
 
     public void likeSong(Object object) throws SQLException {
         mainController.updateLikeSong((Song) object, loggedUser);
-    }
-
-    public void likeArtist(Object object) throws SQLException {
-        mainController.updateLikeArtist((Artist) object, loggedUser);
     }
 
     public void refresh() throws FileNotFoundException, SQLException, IOException {
