@@ -132,7 +132,7 @@ public class Main {
         for (Pair<Song, Double> pair : deviations) {
             recommended.add(pair.getKey());
         }
-        return recommended.subList(0, 8);
+        return recommended.subList(0, 10);
     }
 
     public List<Song> readDataset(long userId, int nbItems) {
