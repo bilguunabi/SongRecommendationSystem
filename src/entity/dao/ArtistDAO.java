@@ -1,4 +1,4 @@
-package dao;
+package entity.dao;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,8 +10,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import core.Artist;
-import core.User;
+import entity.Artist;
+import entity.User;
 
 public class ArtistDAO extends GenericDAO<Artist> {
 	private Connection myConn = null;

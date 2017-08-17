@@ -10,7 +10,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
-import core.Song;
+import entity.Song;
 
 public class SongListCellRenderer implements ListCellRenderer {
 	private JPanel panel;

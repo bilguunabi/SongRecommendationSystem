@@ -11,7 +11,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
-import core.Artist;
+import entity.Artist;
 
 @SuppressWarnings("rawtypes")
 public class ArtistListCellRenderer implements ListCellRenderer {

@@ -21,14 +21,14 @@ import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import core.Artist;
-import core.Song;
-import core.User;
-import rules.MainController;
+import entity.Artist;
+import entity.Song;
+import entity.User;
+import main.Main;
 
 public class UserProfileFrame extends JFrame {
 
-    private MainController mainController;
+    private Main mainController;
     private User loggedUser;
     private JTabbedPane tabbedPane;
     private JPanel Mainpanel, recommendedSongPane, allSongPane, likedSongPane;
@@ -42,7 +42,7 @@ public class UserProfileFrame extends JFrame {
             aArtistListModel;
     private JLabel name;
 
-    public UserProfileFrame(User user, MainController mainController) {
+    public UserProfileFrame(User user, Main mainController) {
         this.mainController = mainController;
         this.loggedUser = user;
         initSwingComponents();

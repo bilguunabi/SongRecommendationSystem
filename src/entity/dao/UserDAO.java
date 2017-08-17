@@ -1,4 +1,4 @@
-package dao;
+package entity.dao;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,9 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import core.Artist;
-import core.Song;
-import core.User;
+import entity.Artist;
+import entity.Song;
+import entity.User;
 
 public class UserDAO extends GenericDAO<User> {
 	private Connection myConn = null;

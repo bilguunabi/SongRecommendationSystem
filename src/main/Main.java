@@ -1,4 +1,4 @@
-package rules;
+package main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,12 +19,12 @@ import org.apache.mahout.cf.taste.model.DataModel;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
 
-import core.Artist;
-import core.Song;
-import core.User;
-import dao.ArtistDAO;
-import dao.SongDAO;
-import dao.UserDAO;
+import entity.Artist;
+import entity.Song;
+import entity.User;
+import entity.dao.ArtistDAO;
+import entity.dao.SongDAO;
+import entity.dao.UserDAO;
 import javafx.util.Pair;
 import org.apache.mahout.cf.taste.impl.recommender.GenericItemBasedRecommender;
 import org.apache.mahout.cf.taste.impl.similarity.LogLikelihoodSimilarity;
@@ -34,7 +34,7 @@ import ui.LoginFrame;
 import ui.SignupFrame;
 import ui.UserProfileFrame;
 
-public class MainController {
+public class Main {
 	// GUI
 	private LoginFrame loginFrame;
 	private SignupFrame signupFrame;
@@ -49,10 +49,10 @@ public class MainController {
 	private User userLogged;
 
 	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException  {
-		new MainController();
+		new Main();
 	}
 
-	public MainController() throws FileNotFoundException, IOException, SQLException {
+	public Main() throws FileNotFoundException, IOException, SQLException {
 		userDAO = new UserDAO();
 		artistDAO = new ArtistDAO();
 		songDAO = new SongDAO();

@@ -13,17 +13,17 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import rules.MainController;
+import main.Main;
 
 public class SignupFrame extends JFrame {
-	private MainController mainController;
+	private Main mainController;
 	JButton login_button, sign_up;
 	JLabel usernamelabel, password_label;
 	JTextField usernamefield;
 	JPasswordField password_field;
 	JPanel panel;
 
-	public SignupFrame(MainController mainController) {
+	public SignupFrame(Main mainController) {
 		this.mainController = mainController;
 		initSwingComponents();
 	}

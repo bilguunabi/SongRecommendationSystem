@@ -1,4 +1,4 @@
-package dao;
+package entity.dao;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

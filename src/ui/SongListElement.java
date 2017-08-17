@@ -1,6 +1,6 @@
 package ui;
 
-import core.Song;
+import entity.Song;
 
 public class SongListElement {
 	private Song song;

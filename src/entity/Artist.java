@@ -1,4 +1,4 @@
-package core;
+package entity;
 
 public class Artist {
 	private String genre, artistName;

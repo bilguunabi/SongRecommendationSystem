@@ -1,4 +1,4 @@
-package core;
+package entity;
 
 public class Song {
 	private String title, artistName, album, genre;
