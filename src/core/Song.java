@@ -10,8 +10,7 @@ public class Song {
 	@Override
 	public String toString() {
 		return "Song [title=" + title + ", artistName=" + artistName + ", album=" + album + ", genre=" + genre
-				+ ", danceability=" + danceability + ", lyrics=" + lyrics + ", energy=" + energy + ", tempo=" + tempo
-				+ ", likes=" + likes + "]";
+                            + ", likes=" + likes + "]";
 	}
 
 	public String getTitle() {

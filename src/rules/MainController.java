@@ -62,18 +62,18 @@ public class MainController {
 	public void register() {
 		loginFrame.setVisible(false);
 		signupFrame = new SignupFrame(this);
-		System.out.print("MainController: register");
+		System.out.print("Register requested");
 	}
 
 	public void login(String userName, String password) throws SQLException, FileNotFoundException, IOException {
 		User temp = userDAO.checkCredentials(userName, password);
 		if (temp != null) {
 			userLogged = temp;
-			System.out.println("User Logged: Opening Profile");
+			System.out.println("Successfully logged in.");
 			userProfileFrame = new UserProfileFrame(userLogged, this);
 			loginFrame.setVisible(false);
 		} else {
-			System.out.println("Invalid Credentials");
+			System.out.println("Invalid credentials.");
 			JOptionPane.showMessageDialog(loginFrame, "Wrong username or password!", "Error",
 					JOptionPane.ERROR_MESSAGE);
 		}
@@ -83,11 +83,11 @@ public class MainController {
 		// Check if all info is valid, store a reference on adding to database
 		userLogged = userDAO.addUser(userName, password);
 		if (userLogged != null) {
-			System.out.println("User added");
+			System.out.println("User created successfully.");
 			signupFrame.setVisible(false);
 			loginFrame.setVisible(true);
 		} else {
-			System.out.println("User not added");
+			System.out.println("Creating user was unsuccessful.");
 		}
 	}
 

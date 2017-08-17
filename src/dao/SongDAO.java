@@ -85,7 +85,7 @@ public class SongDAO extends GenericDAO<Song> {
 		ResultSet s = stmt.executeQuery(
 				"select * from user_songs where user_id = " + user.getUserId() + " AND song_id = " + song.getSongId());
 		if (s.next()) {
-			System.out.println("Song already liked");
+			System.out.println("Song is already in your favourite list.");
 			return;
 		}
 		stmt = myConn.createStatement();
@@ -100,7 +100,7 @@ public class SongDAO extends GenericDAO<Song> {
 		} else {
 			System.out.println("Error: Artist corresponding to user not present");
 		}
-		System.out.println("Song liked: " + song.getTitle());
+		System.out.println("Song added to favourite list: " + song.getTitle());
 		
 		stmt = myConn.createStatement();
 		SQL = "select likes from song where song_id = " + song.getSongId();
@@ -109,7 +109,7 @@ public class SongDAO extends GenericDAO<Song> {
 			int likes = s.getInt("likes") + 1;
 			String updateStmt = "update song set likes = "+ likes + " where song_id = " + song.getSongId();
 			stmt.executeUpdate(updateStmt);
-			System.out.println("Song Likes Incremented: " + song.getTitle());
+			System.out.println("Song number of likes incremented: " + song.getTitle());
 		}
 	}
 

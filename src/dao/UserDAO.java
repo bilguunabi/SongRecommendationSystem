@@ -22,11 +22,11 @@ public class UserDAO extends GenericDAO<User> {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException {
 		UserDAO dao = new UserDAO();
-		dao.addUser("tara073", "iiita123");
+		dao.addUser("kkk", "123");
 	}
 
 	public User addUser(String userName, String password) throws SQLException {
-		System.out.println("addUser: " + userName + " " + password);
+		System.out.println("Create user: " + userName + " " + password);
 		PreparedStatement myStmt = null;
 		User newUser = null;
 		try {
@@ -39,14 +39,14 @@ public class UserDAO extends GenericDAO<User> {
 			System.out.println(myStmt.toString());
 			try {
 				int rowsInserted = myStmt.executeUpdate();
-				System.out.println("Rows Inserted = " + rowsInserted);
+				System.out.println("Rows inserted = " + rowsInserted);
 				ResultSet rs = myStmt.getGeneratedKeys();
 				rs.next();
 				int autoId = rs.getInt(1);
 				newUser = new User(autoId, userName, password);
 				System.out.println(newUser);
 			} catch (Exception e) {
-				System.out.println("User already present.");
+				System.out.println("User exists.");
 			}
 		} finally {
 			close(myStmt);
@@ -89,13 +89,13 @@ public class UserDAO extends GenericDAO<User> {
 			myStmt.setInt(1, user.getUserId());
 			ResultSet rs = myStmt.executeQuery();
 			if (rs.next()) {
-				System.out.println("Song preferences set for user.");
+				System.out.println("Preferences found for user.");
 				return true;
 			}
 		} finally {
 			close(myStmt);
 		}
-		System.out.println("Song preferences not set for user.");
+		System.out.println("Preferences not found for user.");
 		return false;
 	}
 
