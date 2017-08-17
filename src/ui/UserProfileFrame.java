@@ -101,7 +101,7 @@ public class UserProfileFrame extends JFrame {
         });
         panel.add(rSongScrollPane, BorderLayout.CENTER);
         panel.add(rLikeSongButton, BorderLayout.NORTH);
-        panel.add(rRefreshSongsButton, BorderLayout.AFTER_LAST_LINE);
+        panel.add(rRefreshSongsButton, BorderLayout.SOUTH);
         try {
             refreshRecommendedSongList();
         } catch (SQLException | IOException e1) {
@@ -205,7 +205,7 @@ public class UserProfileFrame extends JFrame {
         });
 
         tabbedPane = new JTabbedPane();
-        tabbedPane.setBounds(0, 10, getWidth()-2, getHeight()-10);
+        tabbedPane.setBounds(0, 10, getWidth()-2, getHeight()-40);
         tabbedPane.setBackground(tabColor);
 
         recommendedSongPane = new JPanel();
