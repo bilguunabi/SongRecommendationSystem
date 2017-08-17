@@ -111,7 +111,6 @@ public class MainController {
 		List<Song> allSongs = songDAO.fetchAllSongsList();
 		List<Song> recommended = new ArrayList<>();
 		if (!userDAO.isSongPreferencesSet(user))
-			//return songDAO.fetchTopSongs();
 			return this.readDataset(user.getUserId(), 10);
 		List<Song> likedSongs = getLikedSongList(user);
 		double userScore = 0.0;
